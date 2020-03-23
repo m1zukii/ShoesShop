@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .product td {
+            width: 120px;
+        }
+        .product input.count {
+            width: 30px;
+            display: inline;
+        }
+        .product img {
+            width: 40px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <a href="detail.html?pid=1">product</a>
+    <a href="/q.html">/q</a>
+    <input type="button" value="退出登录" id="logoutbtn">
+    <form action="#">
+        <div class="col-xs-12">
+            <input type="text" id="uname" name="uname" placeholder="请输入您的用户名">
+        </div>
+        <div class="col-xs-12">
+            <input type="password" id="upwd" name="upwd" placeholder="请输入您的密码">
+        </div>
+        <div class="col-xs-12">
+            <input type="button" value="登录" id="loginBtn">
+        </div>
+    </form>
+    <div id="message">message</div>
+    <br>
+  
+    <br>
+    butcount <input type="text" id="buycount">
+    specid <input type="text" id="specid">
+    <input type="button" value="add test" id="b">
+    <br>
+    butcount <input type="text" id="buycount1">
+    specid <input type="text" id="specid1">
+    <input type="button" value="update test" id="c">
+    <br>
+    specid <input type="text" id="specid2">
+    <input type="button" value="delete test" id="d">
+    <br>
+    specid <input type="text" id="specid3">
+    <input type="checkbox" name="check" id="check">
+    <input type="button" value="check test" id="e">
+    <input id="prodId" name="prodId" type="hidden" value="xm234jq">
+    <table>
+        <tr class="product">
+            <td>
+                <div style="display: none;" class="specid">specid</div>
+            </td>
+            <td>
+                <input type="checkbox" name="ischeck" id="ischeck">
+            </td>
+            <td>
+                <div class="name">pname</div>
+            </td>
+            <td>
+                <img src="img" alt="" class="pimg">
+            </td>
+            <td>
+                <div class="color">color</div>
+            </td>
+            <td>
+                <div class="size">size</div>
+            </td>
+            <td>
+                <div class="price">price</div>
+            </td>
+            <td>
+                <input type="button" value="-" class="minus" onclick="minusCount(this)">
+                <input class="count" type="text">count</input>
+                <input type="button" value="+" class="add" onclick="addCount(this)">
+            </td>
+            <td>
+                <div class="money">money</div>
+            </td>
+            <td>
+                <input type="button" value="click" onclick="test()">
+            </td>
+        </tr>
+    </table>
+    <table id="cart"></table>
+    <div class="total"></div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script>
+        
+        function changeCheck(obj){
+            let specid = $(obj).parents('.product').find('.specid').html()
+            let check = $(obj).is(":checked")
+            let is_checked = 0
+            if(check == true){
+                is_checked = 1
+            }
+            $.ajax({
+                method: 'GET',
+                url: `http://localhost:5050/cart/item/checked?specid=${specid}&checked=${is_checked}`,
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                success: function (data, msg, xhr) {
+                    console.log(data.code, data.msg)
+                    if (data.code === 200) {
+                        console.log('update check success')
+                    }
+                    else {
+                        console.log('update check fail')
+                    }
+                },
+                error: function (xhr, error) {
+                    console.log(error)
+                    console.log(1)
+                }
+            })
+            calculateTotalMoney()
+        }
+        function changeCount(event) {
+            value = event.target.value.replace(/[^\d]/g, '')
+            if(value.length == 0){
+                value = 0
+            }
+            let count = parseInt(value)
+            event.target.value = count
+            let product = $(event.target).parents('.product')
+            let specid = product.find('.specid').html()
+            let money = product.find('.money')
+            let price = parseInt(product.find('.price').html())
+            $.ajax({
+                method: 'GET',
+                url: `http://localhost:5050/cart/item/updatecount?specid=${specid}&buyCount=${count}`,
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                success: function (data, msg, xhr) {
+                    if (data.code === 200) {
+                        money.html(price * (count))
+                    }
+                    else {
+                    }
+                },
+                error: function (xhr, error) {
+                }
+            })
+        }
+        function minusCount(obj) {
+            let product = $(obj).parents('.product')
+            let specid = product.find('.specid').html()
+            let countinput = product.find('.count')
+            let money = product.find('.money')
+            let price = parseInt(product.find('.price').html())
+            let count = parseInt(countinput.val())
+            $.ajax({
+                method: 'GET',
+                url: `http://localhost:5050/cart/item/updatecount?specid=${specid}&buyCount=${count - 1}`,
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                success: function (data, msg, xhr) {
+                    if (data.code === 200) {
+                        countinput.val(count - 1)
+                        money.html(price * (count - 1))
+                    }
+                    else {
+                    }
+                },
+                error: function (xhr, error) {
+                }
+            })
+        }
+        function addCount(obj) {
+            let product = $(obj).parents('.product')
+            let specid = product.find('.specid').html()
+            let countinput = product.find('.count')
+            let count = parseInt(countinput.val())
+            let money = product.find('.money')
+            let price = parseInt(product.find('.price').html())
+            $.ajax({
+                method: 'GET',
+                url: `http://localhost:5050/cart/item/updatecount?specid=${specid}&buyCount=${count + 1}`,
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                success: function (data, msg, xhr) {
+                    if (data.code === 200) {
+                        countinput.val(count + 1)
+                        money.html(price * (count + 1))
+                    }
+                    else {
+                    }
+                },
+                error: function (xhr, error) {
+                }
+            })
+        }
+        //选中和取消选中商品时 计算总金额
+        function calculateTotalMoney() {
+            i = 0
+            total = 0
+            $('.product').each(function () {
+                let ischecked = $(this).find('.ischeck').is(':checked')
+                if(ischecked) total+= parseInt($(this).find('.money').html())
+                
+            })
+            $('.total').html(total+'元')
+           
+        }
+        $('#check').change(function () {
+            let check = $(this).is(':checked')
+            if (check == true) {
+                check = 1
+            }
+            else {
+                check = 0
+            }
+            $.ajax({
+                method: 'GET',
+                url: `http://localhost:5050/cart/item/checked?specid=${specid}&checked=${check}`,
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                success: function (data, msg, xhr) {
+                    console.log(data.code, data.msg)
+                    if (data.code === 200) {
+                        console.log('update check success')
+                    }
+                    else {
+                        console.log('update check fail')
+                    }
+                },
+                error: function (xhr, error) {
+                    console.log(error)
+                    console.log(1)
+                }
+            })
+        })
+        $(function () {
+            $('#logoutbtn').click(function () {
+                $.ajax({
+                    method: 'GET',
+                    url: 'http://localhost:5050/user/logout',
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    crossDomain: true,
+                    success: function (data, msg, xhr) {
+                        alert(data)
+                        console.log(data.code, data.msg)
+                    },
+                    error: function (xhr, error) {
+                        console.log(error)
+                    }
+                })
+            })
+            $('#message').html('helloljr')
+            $.ajax({
+                method: 'GET',
+                url: 'http://localhost:5050/user/sessiondata',
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                success: function (data, msg, xhr) {
+                    let uid = data.uid
+                    let uname = data.uname
+                    console.log('data' + data)
+                    if (uid && uname) {
+                        $('#message').html('欢迎用户' + uname)
+                    }
+                    else {
+                        $('#message').html('还没有登录')
+                    }
+                },
+                error: function (xhr, error) {
+                    console.log(error)
+                    console.log(1)
+                }
+            })
+            $.ajax({
+                method: 'GET',
+                url: `http://localhost:5050/cart/item/list`,
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                success: function (data, msg, xhr) {
+                    console.log('length' + data.length)
+                    var res = ``
+                    var product, spec_id, pname, price, color, size, spec_img, count;
+                    for (var i = 0; i < data.length; i++) {
+                        product = data[i]
+                        res += `
+            <tr class="product">
+                <td>
+                    <div style="display: none;" class="specid">${product.spec_id}</div>
+                </td>
+                <td>
+                    <input type="checkbox" class="ischeck" onclick="changeCheck(this)" `
+                        if (product.is_checked) res += ` checked `
+                        res +=
+                            `
+                    ></td>
+                <td>
+                    <div class="name">${product.pname}</div>
+                </td>
+                <td>
+                    <img src="${product.spec_img}" alt="" class="pimg">
+                </td>
+                <td>
+                    <div class="color">${product.color}</div>
+                </td>
+                <td>
+                    <div class="size">${product.size}</div>
+                </td>
+                <td>
+                    <div class="price">${product.price}</div>
+                </td>
+                <td>
+                    <input type="button" value="-" class="minus" onclick="minusCount(this)">
+                    <input class="count" type="text" value="${product.count}"
+                     oninput="changeCount(event)"></input>
+                    <input type="button" value="+" class="add" onclick="addCount(this)">
+                </td>
+                <td>
+                    <div class="money">${product.price * product.count}</div>
+                </td>
+            </tr>
+                        `
+                       
+                    }
+                    // $('.ischeck').click(function(){
+                    //     var th = $(this).is(':checked')
+                    //     console.log(th)
+                    // })
+                    // $('.count').on('input',a(event)) change="changeCheck(this)"
+                    $('#cart').html(res)
+                    calculateTotalMoney()
+                    // console.log()
+                },
+                error: function (xhr, error) {
+                    console.log(error)
+                }
+            })
+           
+        })
+        $('#loginBtn').click(function () {
+            let uname = $('#uname').val()
+            let upwd = $('#upwd').val()
+            console.log(uname + ' ' + upwd)
+            $.ajax({
+                method: 'POST',
+                url: 'http://localhost:5050/user/login',
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                data: {
+                    'uname': uname,
+                    'upwd': upwd
+                },//`uname=${uname}&upwd=${upwd}`
+                success: function (data, msg, xhr) {
+                    // console.log('hello0'+data)
+                    $('#message').html(data)
+                    if (data.code === 200) {
+                        alert('登录成功')
+                    }
+                    else {
+                        alert('登录失败 错误信息' + data.msg)
+                    }
+                },
+                error: function (xhr, error) {
+                    alert('登录异常')
+                    // console.log(error)
+                }
+            })
+        })
+        $('#b').click(function () {
+            let buycount = $('#buycount').val()
+            let specid = $('#specid').val()
+            $.ajax({
+                method: 'GET',
+                url: `http://localhost:5050/cart/item/add?specid=${specid}&buyCount=${buycount}`,
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                success: function (data, msg, xhr) {
+                    if (data.code === 200) {
+                        console.log('add success')
+                    }
+                    else {
+                        console.log('add fail')
+                    }
+                },
+                error: function (xhr, error) {
+                    console.log(error)
+                    console.log(1)
+                }
+            })
+        })
+        $('#c').click(function () {
+            let buycount = $('#buycount1').val()
+            let specid = $('#specid1').val()
+            $.ajax({
+                method: 'GET',
+                url: `http://localhost:5050/cart/item/updatecount?specid=${specid}&buyCount=${buycount}`,
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                success: function (data, msg, xhr) {
+                    if (data.code === 200) {
+                        console.log('update success')
+                    }
+                    else {
+                        console.log('update fail')
+                    }
+                },
+                error: function (xhr, error) {
+                    console.log(error)
+                    console.log(1)
+                }
+            })
+        })
+        $('#d').click(function () {
+            let specid = $('#specid2').val()
+            $.ajax({
+                method: 'GET',
+                url: `http://localhost:5050/cart/item/delete?specid=${specid}`,
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                success: function (data, msg, xhr) {
+                    console.log(data)
+                    if (data.code === 200) {
+                        console.log('delete success')
+                    }
+                    else {
+                        console.log('delete fail')
+                    }
+                },
+                error: function (xhr, error) {
+                    console.log(error)
+                    console.log(1)
+                }
+            })
+        })
+        $('#e').click(function () {
+            let specid = $('#specid3').val()
+            let check = $('#check').is(':checked')
+            if (check == true) {
+                check = 1
+            }
+            else {
+                check = 0
+            }
+            $.ajax({
+                method: 'GET',
+                url: `http://localhost:5050/cart/item/checked?specid=${specid}&checked=${check}`,
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                success: function (data, msg, xhr) {
+                    console.log(data.code, data.msg)
+                    if (data.code === 200) {
+                        console.log('update check success')
+                    }
+                    else {
+                        console.log('update check fail')
+                    }
+                },
+                error: function (xhr, error) {
+                    console.log(error)
+                    console.log(1)
+                }
+            })
+        })
+    </script>
+</body>
+</html>
+<!--
+      
+    <form action="/login" method="POST">
+        用户名: <input type="text" name="username" /> <br>
+        密码: <input type="password" name="pwd" />
+        <input type="submit" value="Submit" />
+    </form>
+     // <td>
+                        // <input type="button" value="click" onclick="test(this)">
+                        // </td>
+                        // res += `product` + (i + 1)
+                        // res += `spec_id ${product.spec_id}
+                        // pname ${product.pname}
+                        // price ${product.price}
+                        // color ${product.color}
+                        // size ${product.size}
+                        // spec_img ${product.spec_img}
+                        // count ${product.count}
+                        // ischecked ${product.is_checked}
+                        // <br>`
+      // $.ajax({
+            //     method:'GET',
+            //     url:'http://127.0.0.1:5050/user/sessiondata',
+            //     success:function(data,msg,xhr){
+            //         let uid = data.uid
+            //         let uname = data.uname
+            //         console.log('data'+data)
+            //         if(uid&&uname){
+            //             $('#message').html('欢迎用户'+uname)
+            //         }
+            //         else{
+            //             $('#message').html('还没有登录')
+            //         }
+            //     },
+            //     error:function(xhr,error){
+            //     }
+            // })
+             // $('#uname').on('input',function(e){
+        //      console.log('Changed!')
+        // });
+        // $('#uname').change(function(e){
+        //      console.log('Changed!')
+        // });
+         // function a(event){
+        //     // q = this.val()
+        //     // console.log('133'+q)
+        // }
+         function test(obj) {
+            let btn = $(obj)
+            specid = btn.parents('.product').find('.specid').html()
+            console.log(specid)
+        }
+-->

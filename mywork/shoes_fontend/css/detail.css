@@ -1,0 +1,170 @@
+.xz-detail .container{
+   margin-bottom: 30px;
+}
+.xz-detail .row{
+   margin-bottom: 10px;
+}
+.xz-detail ul li{
+   list-style: none;
+   float: left;
+}
+.xz-detail img{
+   border: 1px solid rgb(80, 50, 50);
+}
+.xz-detail .sm_pic li{
+   margin-right: 5px;
+}
+.xz-detail .sm_pic img{
+   width: 60px;
+   height: 60px;
+} 
+.xz-detail lg img{
+   width: 430px;
+   height: 430px;
+}
+.xz-detail #title h3{
+   margin-top: 0;
+   text-align: center;
+   color: rgb(80, 50, 50);
+}
+.xz-detail #title h3 small{
+  color: rgb(250, 10, 180);
+}
+.xz-detail #price{
+   font-size: large;
+   color: rgb(250, 10, 180)
+}
+.xz-detail #cm li{
+   margin-right: 5px;
+   outline: none; 
+}
+.xz-detail .btn{
+   border: 2px solid rgb(80, 50, 50);
+   background-color: white;
+}
+.xz-detail #sort li{
+   margin-right: 5px;
+}
+.xz-detail #sort li img{
+   border: 2px solid rgb(80, 50, 50);
+}
+.xz-detail #num{
+   width: 50px;
+   height: 40px; 
+   border: 2px solid rgb(80, 50, 50);
+   border-radius: 10px 10px 10px 10px;
+}
+.xz-detail .jr{
+   width: 220px;
+   height: 50px;
+   background-color: rgb(250, 10, 180);
+   margin: 10px;
+   color: white;
+   border-radius: 10px 10px 10px 10px;
+}
+.xz-detail .jr:hover{
+   background-color: rgb(80, 50, 50);
+   border: none;
+}
+#shade{
+   position: absolute;
+   width: 200px;
+   height: 200px;
+   filter: alpha(Opacity=70); /*IE设置透明度*/
+   -moz-opacity: 0.7; /*火狐设置透明度*/
+   opacity: 0.5; /*chrome设置透明度*/
+   background-color:rgb(250, 10, 180);
+   display: none;
+}
+#canvas{
+   position: absolute;
+   top: 0px;
+   background-color:rgba(250, 10, 180,.0);
+   display: none;
+}
+.xz-detail .tabs li{
+   border-top:3px solid rgb(250, 10, 180);
+   width:100px;
+   height:33px;
+   font-weight:700;
+   color: rgb(250, 10, 180);
+   text-align: center;
+   background:white;
+   padding-top: 5px;
+   border-right:1px solid rgb(80, 50, 50);
+	border-left:1px solid rgb(80, 50, 50);
+}
+.xz-detail .tab{
+   margin-bottom: 0px;
+}
+.xz-detail .dt{
+   border: 1px solid gray;
+   background-color: white;
+}
+.xz-detail .xz-detail-btngroup{
+   margin-left: 15px;
+}
+.xz-detail .xz-detail-btngroup a:hover{
+   background: none;
+}
+.xz-detail .xz-detail-btngroup li{
+   width: 180px;
+   border-radius: 10px 10px 10px 10px;
+}
+.xz-detail .xz-detail-btngroup li:hover{
+   background: rgb(250, 10, 180);
+}
+.xz-detail .sm{
+   margin-left: 10%;
+}
+.xz-detail .xz-car-title{
+   border-radius: 20px 10px 100px 10px;
+   margin-left: 1px;
+  width: 160px;
+  background:rgb(250,10,180);
+  padding-top: 8px;
+  padding-left: 5px;
+   font-weight: 700;
+   padding-bottom: 8px;
+   margin-bottom: 10px;
+   color: #000000;
+}
+.xz-detail .wrap{
+   height: 200px;
+   margin-bottom: 10px;
+}
+.xz-detail-wrap{
+   border: 2px solid rgb(80, 50, 50);
+   border-radius: 10px 10px 10px 10px;
+   padding-top: 1px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px){
+   .xz-detail .sm{
+      margin-left: 25%;
+   }
+   .xz-detail #canvas,#shade{
+      width: 0;
+      height: 0;
+   }
+   .xz-detail .xz-detail-right{
+      margin-top: 20px;
+      padding-top: 5px;
+      border-top: 1px solid rgb(250, 10, 180);
+   }
+}
+
+@media screen and (max-width: 768px){
+   .xz-detail .sm{
+      margin-left: 25%;
+   }
+   .xz-detail #canvas,#shade{
+      width: 0;
+      height: 0;
+   }
+   .xz-detail .xz-detail-right{
+      margin-top: 20px;
+      padding-top: 5px;
+      border-top: 1px solid rgb(250, 10, 180);
+   }
+}

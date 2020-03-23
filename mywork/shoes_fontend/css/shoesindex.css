@@ -1,0 +1,432 @@
+.carousel .item img {
+    width: 100%;
+}
+
+.xz-page-header {
+    font-size: 1.2em;
+    border-bottom: 1px solid #d9d9d9;
+    padding: 15px 0 10px 0px;
+}
+
+.xz-item {
+    background: rgba(255,255,255,0.8);
+    padding: 20px 25px;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.xz-item-3{
+    padding-top: 50px;
+    height: 250px;
+}
+
+.xz-item-4{
+    height: 250px;
+}
+
+.xz-item-1-img {
+    position: relative;
+    right: 20px;
+    width: 112%;
+    height: 208px;
+    top: 0px;
+    transition: all .5s;
+    /*对所有变化的属性执行0.5s的动画*/
+}
+
+.xz-item-2-img {
+    position: relative;
+    right: 20px;
+    width: 120%;
+    height: 150px;
+    top: 28px;
+    transition: all .5s;
+}
+
+.xz-item-3-img {
+    position: relative;
+    right: 25px;
+    width: 120%;
+    height: 150px;
+    top: 0px;
+    transition: all .5s;
+}
+
+.xz-item-4-img {
+    position: relative;
+    right: 10px;
+    width: 120%;
+    height: 120px;
+    top: 0px;
+    transition: all .5s;
+    margin-bottom: 5px;
+}
+.xz-item-4 h4{
+    margin-bottom: 5px;
+}
+
+.xz-item-1-img:hover,
+.xz-item-2-img:hover,
+.xz-item-3-img:hover,
+.xz-item-4-img:hover{
+    transform: scale(1.1);
+    /*鼠标悬停时执行变形：缩放为1.1倍大小*/
+}
+
+.xz-item-row-1 {
+    height: 250px;
+}
+
+.xz-item-3-title {
+    font-size: 1.4em;
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+
+.xz-low-item {
+    margin-top: 10px;
+}
+
+.xz-con-1{
+    margin-bottom: 20px;
+}
+.xz-con-right{
+    border-left: 1px solid rgb(250,10,180);
+    border-right: 1px solid rgb(250,10,180);
+}
+
+.xz-car-title{
+    border-radius: 0px 0px 100px 0px;
+    margin-left: 0px;
+	width: 160px;
+	background:rgb(250,10,180);
+	padding-top: 8px;
+	padding-left: 5px;
+    font-weight: 700;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+    color: #000000;
+}
+.xz-car-a{
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+}
+.xz-car-a a{
+    color: rgb(250,10,180);
+}
+.xz-car-a a:hover{
+    color: #000000
+}
+
+.pic_list3 img{
+    width: 120px;
+    height: 120px;
+    transition: all .5s;
+    position: relative;
+}
+.pic_list3 img:hover{
+    transform: scale(1.1);
+}
+.price2{font-size:12px;font-weight:700;color:rgb(250,10,180);text-align:center;margin-top: 2px;}
+.endendend{color: rgb(80,50,50);font-weight: 700;}
+
+.xz-first{
+    margin-bottom: 10px;
+    background: rgb(80,50,50);
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-radius: 10px 10px 10px 10px;
+    color: rgb(80,50,50);
+}
+.Jay_video{
+    width: 260px;
+    border: 1px solid rgb(250,10,180);
+    margin-bottom: 5px;
+}
+.xz-sale{
+    margin-top: 50px;
+}
+.xz-sale-1{
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #000000;
+}
+.xz-sale-2{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.xz-sale-3{
+    float: left;
+    color: rgb(250,10,180);
+}
+.xz-sale-4{
+    float: right;
+    color: rgb(250,10,180);
+}
+.xz-sale-5{ 
+    font-size: 15px;
+    margin-top: 50px;
+    float: none;
+    text-align: center;
+}
+.xz-sale-5 a{
+    color: #000000;
+}
+.xz-sale-5 a:hover{
+    color: rgb(250,10,180);
+}
+
+.lb-right{
+    height: 260px;
+    margin-left: 30px;
+}
+.lb-album {
+	font-family:Arial, Helvetica, sans-serif;
+	margin: 0 auto;
+}
+.lb-album li {
+	width: 50%;
+	float: left;
+	position: relative;
+    padding-right: 18px;
+    padding-left: 20px;
+}
+.lb-album li:nth-child(4), .lb-album li:nth-child(8), .lb-album li:nth-child(12) {
+	margin-right: 0;
+}
+.lb-album li > a, .lb-album li > a img {
+	display: block;
+}
+.lb-album li > a img{
+    width: 240px;
+}
+.lb-album li > a {
+	position: relative;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px 4px 4px 4px;
+}
+.lb-album li > a span {
+	position:absolute;
+	width: 240px;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	text-align: center;
+	padding-top: 50px;
+	line-height:50px;
+	color: rgb(250,10,180);
+	text-shadow: 0px 1px 1px rgba(255,255,255,0.6);
+	font-size: 24px;
+	opacity: 0;
+	filter: alpha(opacity=0); /* internet explorer */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=0)"; /*IE8*/
+	background: rgba(80,50,50, 0.61);
+	-moz-transition: opacity 0.3s linear;
+	-o-transition: opacity 0.3s linear;
+	-ms-transition: opacity 0.3s linear;
+	transition: opacity 0.3s linear;
+}
+.lb-album li > a:hover span {
+	opacity: 1;
+	filter: alpha(opacity=99); /* internet explorer */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=99)"; /*IE8*/
+}
+.lb-overlay {
+	width: 0px;
+	height: 0px;
+	position: fixed;
+	overflow: hidden;
+	left: 0px;
+	top: 0px;
+	padding: 0px;
+	z-index: 99;
+	text-align: center;
+	background:rgba(109, 71, 64, 0.94);
+}
+.lb-overlay > div {
+	position: relative;
+	color: rgba(27,54,81,0.8);
+	opacity: 0;
+	filter: alpha(opacity=0); /* internet explorer */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=0)"; /*IE8*/
+	width: 550px;
+	margin: 10px auto 0px auto;
+	text-shadow: 0px 1px 1px rgba(255,255,255,0.6);
+	-webkit-transition: opacity 0.3s linear 1.3s;
+	-moz-transition: opacity 0.3s linear 1.3s;
+	-o-transition: opacity 0.3s linear 1.3s;
+	-ms-transition: opacity 0.3s linear 1.3s;
+	transition: opacity 0.3s linear 1.3s;
+}
+.lb-overlay div h3 {
+	color: rgb(250,10,180);
+	font-size: 36px;
+	float: left;
+	text-align: right;
+	border-right: 1px solid rgba(250,10,180);
+}
+.lb-overlay div p {
+	padding-top: 5px;
+	font-size: 16px;
+    font-style: italic;
+    text-align: center;
+    width: 560px;
+    color: #fff;
+}
+.lb-overlay div span {
+	display: block;
+	line-height: 6px;
+    font-weight:700 ;
+    color: rgb(250,10,180);
+}
+.lb-overlay a.lb-close {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 0.924em;
+    padding: 4px;
+    padding-top: 0px;
+	background: rgba(93, 33, 30, 0.61);
+	z-index: 1001;
+	color: #fff;
+	position: absolute;
+	top: 43px;
+	left: 50%;
+	font-size: 15px;
+	line-height: 26px;
+	text-align: center;
+	width: 50px;
+	height: 26px;
+	overflow: hidden;
+	margin-left: -25px;
+	opacity: 0;
+	filter: alpha(opacity=0); /* internet explorer */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=0)"; /*IE8*/
+	-webkit-box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+	-moz-box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+	box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+	-webkit-transition: opacity 0.3s linear 1.2s;
+	-moz-transition: opacity 0.3s linear 1.2s;
+	-o-transition: opacity 0.3s linear 1.2s;
+	-ms-transition: opacity 0.3s linear 1.2s;
+    transition: opacity 0.3s linear 1.2s;
+    border-radius: 100px 100px 100px 100px;
+    border: 1px solid #000000;
+}
+.lb-overlay a.lb-close:hover{
+    background: rgb(250,10,180);
+    color: #000000;
+    transition:  1.1s;
+}
+.lb-overlay img {
+	/* height: 100%; For Opera max-height does not seem to work */
+	max-height: 100%;
+	position: relative;
+	-webkit-box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+	-moz-box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+	box-shadow: 0px 2px 7px rgba(0,0,0,0.2);
+}
+.lb-overlay:target {
+	width: auto;
+	height: auto;
+	bottom: 0px;
+	right: 0px;
+	padding: 80px 100px 120px 100px;
+}
+.lb-overlay:target img {
+	-webkit-animation: fadeInScale 1.2s ease-in-out;
+	-moz-animation: fadeInScale 1.2s ease-in-out;
+	-o-animation: fadeInScale 1.2s ease-in-out;
+	-ms-animation: fadeInScale 1.2s ease-in-out;
+	animation: fadeInScale 1.2s ease-in-out;
+}
+.lb-overlay:target a.lb-close, .lb-overlay:target > div {
+	opacity: 1;
+	filter: alpha(opacity=99); /* internet explorer */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=99)"; /*IE8*/
+}
+.lb-overlay-title{
+    color: rgb(250,10,180);
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .xz-item-3{
+        height: 350px;
+        padding-top: 20px;
+    }
+    .xz-item-3 h3{
+        font-size: 15px;
+    }
+    .xz-item-3 p{
+        font-size: 18px;
+        margin-bottom: 4px;
+    }
+    .xz-item-4,.xz-item-3{
+        margin-bottom: 10px;
+    }
+    .xz-item-4,.xz-item-3{
+        height: 360px;
+    }
+    .xz-item-4 p{
+        margin-top: 15px;
+    }
+    .xz-item-1-img,
+    .xz-item-2-img,
+    .xz-item-3-img,
+    .xz-item-4-img {
+        /*针对平板屏幕调整图片的位置和尺寸*/
+        right: 0;
+        width: 100%;
+        height: 220px;
+        top: 0;
+    }
+    .xz-item-row-1 {
+        height: 430px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .xz-item-3{
+        height: 330px;
+        padding-top: 20px;
+        margin-bottom: 20px;
+    }
+    .xz-item-3 h3{
+        font-size: 15px;
+    }
+    .xz-item-3 p{
+        font-size: 18px;
+        margin-bottom: 2px;
+    }
+    .xz-item-4{
+        height: 330px;
+        margin-bottom: 20px;
+    }
+    .xz-item-4 p{
+        margin-top: 20px;
+        font-size: 15px;
+    }
+    .xz-item-1-img,
+    .xz-item-2-img,
+    .xz-item-3-img,
+    .xz-item-4-img {
+        /*针对手机屏幕调整图片的位置和尺寸*/
+        right: 0;
+        width: 100%;
+        height: 150px;
+        top: 0;
+        margin-bottom: 10px;
+    }
+    .xz-item-row-1 {
+        height: 380px;
+    }
+    .xz-item-3-title {
+        font-size: 1.2em;
+    }
+    .xz-car-title{
+        margin-top: 10px;
+    }
+}
+

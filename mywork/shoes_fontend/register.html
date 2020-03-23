@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>注册页面</title>
+    <link rel="stylesheet" href="css/myshoesframe.css">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/scaffolding.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+    <style>
+      .register{
+        margin-top: 10px;
+        background: rgba(80,50,50,.4);
+        color:#fff;
+        height: 380px;
+        border-radius: 10px 10px 10px 10px;
+      }
+      .register a{
+        color:#fff;
+        font-size: 15px;
+      }
+      .register a:hover{
+        color: rgb(250, 10, 180);
+      }
+      .main {
+            background-image: url(./img/login/background.jpg);
+            height: 400px;
+            margin-bottom: 20px;
+            border-radius: 10px 10px 10px 10px;
+      }
+      @media screen and (min-width: 768px) and (max-width: 991px){
+        .main{
+          height: 670px;
+        }
+        .register{
+          height: 650px;
+        }
+      }
+      @media screen and (max-width: 768px){
+        .main{
+          height: 660px;
+        }
+        .register{
+          height: 640px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 页头 -->
+
+
+
+    <div class="xz-header">
+      <div class=" navbar navbar-default">
+          <div class="container">
+              <!-- 导航条头部 -->
+              <div class=" navbar-header">
+                  <!-- 头部：LOGO -->
+                  <a href="/index.html"><img src="img/logo.png" alt=""></a>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <!-- 头部：汉堡包按钮 -->
+                  <button type="button" class=" navbar-toggle" data-toggle="collapse" data-target="#xzMenu">
+                      <span class=" icon-bar"></span>
+                      <span class=" icon-bar"></span>
+                      <span class=" icon-bar"></span>
+                  </button>
+              </div>
+              <!-- 导航条折叠部分 -->
+              <div class=" navbar-collapse collapse" id="xzMenu">
+                  <!-- 折叠部分：左侧的菜单 -->
+                  <ul class="nav navbar-nav">
+                      <li><a href="index.html" class="header-font" >首页</a></li>
+                      <li><a href="#">学习用品</a></li>
+                      <li><a href="#">私人定制</a></li>
+                  </ul>
+                  <!-- 右侧的链接和文字 -->
+                  <a href="login.html" class="navbar-text navbar-right navbar-link">登录</a>
+                  <span class=" navbar-text navbar-right">|</span>
+                  <a href="register.html" class="navbar-text navbar-right navbar-link">注册</a>
+                  <span class=" navbar-text navbar-right">|</span>
+                  <a class=" navbar-text navbar-link navbar-right" href="cart.html">
+                      <span class=" glyphicon glyphicon-shopping-cart"></span>
+                  </a>
+                  <span class=" navbar-text navbar-right">|</span>
+                  <a class=" navbar-text navbar-link navbar-right" href="favorite.html">
+                      <span class=" glyphicon glyphicon-heart"></span>
+                  </a>
+                  <!-- 搜索表单 -->
+                  <form action="#" class=" navbar-form navbar-right">
+                      <div class=" input-group">
+                          <input type="text" placeholder="商品搜索" class=" form-control">
+                          <span class=" input-group-btn">
+                              <button type="button" class=" btn btn-primary">
+                                  <span class=" glyphicon glyphicon-search"></span>
+                              </button>
+                          </span>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+
+
+    <!-- 主体 -->
+    <div class="main">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-md-8 col-md-push-4">
+            <div class="register">
+              <div class="row">
+                <div class="col-xs-12 col-md-6 col-md-push-2">
+                  <h4 style="text-align: center;">新用户注册</h4>
+                </div>
+              </div>
+              <!--注册表单-->
+              <form action="#" class="form-horizontal">
+                  <div class="form-group">
+                    <label for="uname" class="col-md-2 control-label">用户名：</label>
+                    <div class="col-md-6">
+                      <input id="uname" type="text" class="form-control">
+                    </div>
+                    <div class="col-md-3 col-md-offset-1 col-md-pull-1" >
+                      <span id="unameMsg" class="help-block">用户名长度在3~12位之间</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="upwd" class="col-md-2 control-label">登录密码：</label>
+                    <div class="col-md-6">
+                      <input id="upwd" type="password" class="form-control">
+                    </div>
+                    <div class="col-md-3 col-md-offset-1 col-md-pull-1">
+                      <span class="help-block" id="upwdMsg">密码长度在3~12位之间</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="repwd" class="col-md-2 control-label">确认密码：</label>
+                    <div class="col-md-6">
+                      <input id="repwd" type="password" class="form-control">
+                    </div>
+                    <div class="col-md-3 col-md-offset-1 col-md-pull-1">
+                      <span class="help-block" id="checkpwd"></span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="email" class="col-md-2 control-label">邮箱：</label>
+                    <div class="col-md-6">
+                      <input id="email" type="text" class="form-control">
+                    </div>
+                    <div class="col-md-3 col-md-offset-1 col-md-pull-1">
+                      <span class="help-block"  id="emailMsg"></span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="phone" class="col-md-2 control-label">手机号：</label>
+                    <div class="col-md-6">
+                      <input id="phone" type="text" class="form-control">
+                    </div>
+                    <div class="col-md-3 col-md-offset-1 col-md-pull-1">
+                      <span class="help-block" id="phoneMsg"></span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-6 col-md-offset-2">
+                      <button id="btRegister" type="button" class="btn btn-info btn-block">提交注册信息</button>
+                    </div>
+                  </div>
+              </form>
+              <div class="col-xs-12 col-md-6 col-md-offset-2" style="text-align: center;">
+                <a href="login.html" >已经有账号啦？直接登录</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="xz-footer">
+      <div class=" container">
+          <div class=" row xz-footer-1">
+              <div class=" col-xs-4 col-md-3">
+                  <ul>
+                      <li class="link-title"><a href="https://www.baidu.com/" title="ABOUT US">开放平台</a></li>
+                      <li><a href="#" title="About Us">旗舰店认证</a></li>
+                      <li><a href="#" title="Customer Service">编辑招聘</a></li>
+                      <li><a href="#" title="Privacy Policy">品牌入驻</a></li>
+                  </ul>
+              </div>
+              <div class=" col-xs-4 col-md-3">
+                  <ul>
+                      <li class="link-title"><a href="https://www.baidu.com/" title="CUSTOMER SERVICES">相关网站</a></li>
+                      <li><a href="https://y.qq.com/" title="Shipping & Returns">爱淘宝</a></li>
+                      <li><a href="http://www.kugou.com/" title="Secure Shopping">京东购物</a></li>
+                      <li><a href="https://music.163.com/" title="Contact Us">拼多多</a></li>
+                  </ul>
+              </div>
+              <div class=" col-xs-4 col-md-3">
+                  <ul>
+                      <li class="link-title"><a href="https://www.baidu.com/" title="TERMS & CONDITIONS">友情链接</a></li>
+                      <li><a href="http://www.scnu.edu.cn/" title="Press Room">华南师范大学官网</a></li>
+                      <li><a href="http://www.scholat.com/" title="Help">学者网</a></li>
+                      <li><a href="https://moodle.scnu.edu.cn/" title="Terms & Conditions">砺儒云课堂</a></li>
+                  </ul>
+              </div>
+              <div class=" col-xs-12 col-md-3 aboutme">
+                  <ul>
+                      <li class="link-title"><a href="https://www.baidu.com/" title="ABOUTUS">关于我们</a></li>
+                      <li class="aboutus-block">本网站是基于教育目的,通过自主学习和运用Web前端网页技术以及node.js后端服务器技术制作相关知识的一个动态网站。&nbsp;&nbsp;
+                          <!-- <a href="#" title="read more">了解更多</a>  -->
+                          <div class="h_icon">
+                              <ul class="icon1 sub-icon1">
+                                  <li><i><a class="active-icon" href="#">了解更多</a></i>
+                                      <ul class="sub-icon1 list">
+                                          <li><h3>获取更多信息</h3><a href="#"></a></li>
+                                          <li><p>如果你想要获取更多信息, <a href="#">联系我们</a> 免费了解更多咨讯</p></li>
+                                      </ul>
+                                  </li>
+                              </ul>
+                          </div>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+          <div class=" row xz-footer-2">
+              <div class="col-xs-6 col-md-3">
+                  <div class="col-md-6">
+                      <img class="brand-img" src="img/erweima.png" alt="">
+                  </div>
+                  <div class=" link-title col-md-6">
+                      <a href="#" title="扫描二维码">扫一扫,与我们保持联系......</a>
+                  </div>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                  <div class="download">
+                      <a href="#" title="下载客户端">移动端APP，点这就够了!</a>
+                  </div>
+                  <div class="download">
+                      <img class="center-block" title="ios应用" src="img/ios.png" alt="">
+                  </div>
+                  <div class="download">                          
+                      <img class="center-block" title="安卓端应用" src="img/android.png" alt="">
+                  </div>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                  <img src="img/footer/shoeslogo.jpg" alt="合作品牌商标" class="brand-img">
+              </div>
+              <div class="col-xs-6 col-md-3">
+                  <img src="img/footer/shoeslogo.jpg" alt="合作品牌商标" class="brand-img">
+              </div>
+          </div>
+          <div class=" row xz-footer-3">
+              <div class=" col-md-6">
+                  <ul class="stay-connected-block">
+                      <li>
+                          <ul class="social-links">
+                              <li><a data-tooltip="Like us on facebook" href="#"><img alt="facebook" src="./img/footer/facebook.png"></a></li>
+                              <li><a data-tooltip="Subscribe to RSS feed" href="#"><img alt="RSS" src="./img/header/rss.png"></a></li>
+                              <li><a data-tooltip="Follow us on twitter" href="#"><img alt="twitter" src="./img/header/twitter.png"></a></li>
+                              <li><a data-tooltip="Follow us on Dribbble" href="#"><img alt="dribbble" src="./img/header/dribbble.png"></a></li>
+                              <li><a data-tooltip="Follow us on Youtube" href="#"><img alt="youtube" src="./img/header/youtube.png"></a></li>
+                              <li><a data-tooltip="Follow us on skype" href="#"><img alt="skype" src="./img/footer/skype.png"></a></li>
+                          </ul>
+                      </li>
+                  </ul>
+              </div>
+              <div class="  col-md-6 copyright">
+                  ©2019 达内科技有限公司 版权所有 京ICP备08000853号-75
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/register.js"></script>
+    <!--弹出式对话框：表示注册成功-->
+    <div id="modalRegisterSucc" class="modal fade">    <!--半透明遮罩-->
+      <div class="modal-dialog modal-sm">     <!--对话框尺寸、位置-->
+        <div class="modal-content">     <!--边框、倒角、背景色-->
+          <!--头部-->
+          <div class="modal-header"></div>
+            <h4 class="modal-title" style="text-align: center;">注册成功</h4>
+          <!--主体-->
+          <div class="modal-body">
+            <p style="text-align: center;">新用户注册成功！</p>
+          </div>
+          <!--尾部-->
+          <div class="modal-footer">
+            <button class="btn btn-info" type="button" data-dismiss="modal" onclick="registersucc()">确定</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--弹出式对话框：表示注册失败-->
+    <div id="modalRegisterErr" class="modal fade">    <!--半透明遮罩-->
+      <div class="modal-dialog modal-sm">     <!--对话框尺寸、位置-->
+        <div class="modal-content">     <!--边框、倒角、背景色-->
+          <!--头部-->
+          <div class="modal-header"></div>
+            <h4 class="modal-title" style="text-align: center;">注册失败</h4>
+          <!--主体-->
+          <div class="modal-body">
+            <p style="text-align: center;">用户注册失败！</p>
+            <p style="text-align: center;">服务器返回的错误消息：<span id="serverErrMsg"></span></p>
+          </div>
+          <!--尾部-->
+          <div class="modal-footer">
+            <button class="btn btn-info" type="button" data-dismiss="modal">确定</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/frame.js"></script>
+    <script src="js/register.js"></script>
+  </body>
+</html>
